@@ -1,6 +1,8 @@
 FROM node:8.1.2
-RUN  mkdir app
-COPY app/ $PWD/app
-RUN  npm install
+RUN  mkdir -r /usr/src/app && cd app && npm install
+COPY . /usr/src/app
+
+WORKDIR /usr/src/app
 EXPOSE 3000
 
+CMD ["node","start"]
