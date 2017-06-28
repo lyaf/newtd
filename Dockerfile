@@ -1,5 +1,5 @@
 FROM node:8.1.2
-RUN  mkdir -r /usr/src/app && cd app && npm install
+RUN  mkdir -p /usr/src/app && cd app && npm install
 COPY . /usr/src/app
 
 WORKDIR /usr/src/app
