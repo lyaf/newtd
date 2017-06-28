@@ -1,5 +1,6 @@
-FROM nginx:1.13.0
-COPY app/ /usr/share/nginx/html
-EXPOSE 80
+FROM node:8.1.2
+RUN  mkdir app
+COPY app/ $PWD/app
+RUN  npm install
+EXPOSE 3000
 
-CMD ["nginx", "-g", "daemon off;"]
