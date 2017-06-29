@@ -1,7 +1,14 @@
 var express = require('express');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://db:27017/test');
+mongoose.connect('mongodb://lyf:test@db:27017/test',function(err){
+    "use strict";
+    if(err){
+        console.log('数据连接失败..');
+    }else{
+        console.log('数据库连接成功...');
+    }
+});
 
 var Cat = mongoose.model('Cat', { name: String });
 
@@ -18,7 +25,7 @@ app.get('/',function(req,res){
             console.log('meow');
         }
     });
-    res.send('<h2>骚操作又出现了...</h2>');
+    res.send('<h2>骚操作之数据库验证...</h2>');
 });
 
 app.listen(3000,function () {
